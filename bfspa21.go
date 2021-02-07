@@ -1,4 +1,4 @@
-package main
+package bfspa21
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ type sans struct {
 	men, hen int
 }
 
-func pa21() {
+func main() {
 	var h, w int
 	var get string
 	fmt.Scan(&h, &w)
