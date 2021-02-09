@@ -1,4 +1,4 @@
-package arrpa28
+package arra28
 
 import "fmt"
 

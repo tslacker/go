@@ -1,4 +1,4 @@
-package bfspa21
+package bfsa21
 
 import (
 	"fmt"

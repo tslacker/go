@@ -1,4 +1,4 @@
-package hashpb40
+package hashb40
 
 import (
 	"bufio"
