@@ -1,4 +1,4 @@
-package arra35
+package main
 
 import (
 	"fmt"
@@ -10,7 +10,6 @@ var memo [101][101]bool
 var n int
 
 func main() {
-	var e int
 	fmt.Scan(&n)
 	a := make([]int, n)
 	for i := range a {
@@ -19,12 +18,8 @@ func main() {
 	f(0, 0, a)
 	sort.Ints(ans)
 	fmt.Println(len(ans))
-	e = -1
 	for _, i := range ans {
-		if e != i {
-			fmt.Println(i)
-			e = i
-		}
+		fmt.Println(i)
 	}
 }
 
