@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -38,9 +39,25 @@ func main() {
 	})
 
 	e.GET("/find", func(c echo.Context) error {
+		u := new(User)
+		err := c.Bind(u)
+		if err != nil {
+			return err
+		}
 		var user []User
-		engine.Table("user").Where("gamename = ?", c).Find(&user)
+		fmt.Println(u.GameName)
+		engine.Table("user").Where("game_name = ?", u.GameName).Find(&user)
 		return c.JSON(http.StatusOK, user)
+	})
+
+	e.POST("/update", func(c echo.Context) error {
+		u := new(User)
+		err := c.Bind(u)
+		if err != nil {
+			return err
+		}
+		engine.Table("user").Where("game_name = ?", u.GameName).Where("name = ?", u.Name).Update(u)
+		return c.JSON(http.StatusOK, u)
 	})
 
 	e.Logger.Fatal(e.Start(":1313"))
