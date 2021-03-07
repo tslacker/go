@@ -3,8 +3,6 @@ package main
 import (
 	"net/http"
 
-	"net/http"
-
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 
